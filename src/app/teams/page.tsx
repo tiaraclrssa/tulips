@@ -16,9 +16,9 @@ const TeamsPage = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await fetchRandomUsers(30); 
-      setDesigners(data.slice(0, 10)); 
-      setStaff(data.slice(10, 30));   
+      const data = await fetchRandomUsers(30);
+      setDesigners(data.slice(0, 10));
+      setStaff(data.slice(10, 30));
     };
     getUsers();
   }, []);
@@ -36,8 +36,9 @@ const TeamsPage = () => {
       <p className="text-sm text-gray-500">{user.email}</p>
     </div>
   );
+
   const UsersGrid = ({ users }: { users: User[] }) => (
-    <div className="grid grid-cols-5 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
       {users.map((user, index) => (
         <UserCard key={index} user={user} />
       ))}
@@ -46,24 +47,35 @@ const TeamsPage = () => {
 
   return (
     <div className="p-5 bg-gray-600 mt-[92px]">
-      <div className="flex flex-col justify-center items-center mb-16">
-        <h1 className="text-3xl font-bold mb-8">Zenith Tulips Teams</h1>
+      <div className="flex flex-col justify-center items-center mb-16 px-4">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+          Zenith Tulips Teams
+        </h1>
         <Image
           src={"/teams/ourTeams.jpeg"}
           alt={"pict teams"}
           width={700}
           height={400}
-          className="rounded-xl shadow-md"
+          className="rounded-xl shadow-md w-full max-w-4xl h-auto"
         />
       </div>
-      <h2 className="text-2xl font-bold mb-8">Desainer Flowers</h2>
-      <UsersGrid users={designers} />
-      <h2 className="text-2xl font-bold mt-16 mb-8">Staff</h2>
-      <UsersGrid users={staff} />
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+        Desainer Flowers
+      </h2>
+      <div className="px-4">
+        <UsersGrid users={designers} />
+      </div>
+      <h2 className="text-2xl md:text-3xl font-bold mt-16 mb-8 text-center">
+        Staff
+      </h2>
+      <div className="px-4">
+        <UsersGrid users={staff} />
+      </div>
     </div>
   );
 };
 
 export default TeamsPage;
+
 
 

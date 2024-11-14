@@ -28,7 +28,8 @@ const reviews: Review[] = [
     id: 3,
     name: "Siti",
     image: "/reviews/customer3.jpg",
-    comment: "Kualitas bunga sangat bagus, dan pengiriman cepat, nyesel banget cma beli satu",
+    comment:
+      "Kualitas bunga sangat bagus, dan pengiriman cepat, nyesel banget cma beli satu",
     rating: 5,
   },
   {
@@ -49,13 +50,13 @@ const reviews: Review[] = [
 
 export default function ReviewSection() {
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-lg max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-4">Customer Reviews</h2>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+    <div className="bg-gray-100 py-10 px-5 rounded-lg shadow-lg max-w-7xl mx-auto">
+      <h2 className="text-2xl font-bold text-center mb-8">Customer Reviews</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {reviews.map((review) => (
           <div
             key={review.id}
-            className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <div className="flex items-center mb-4">
               <Image
