@@ -1,101 +1,118 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import ReviewSection from "@/components/review";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const textRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+
+    return () => {
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
+    };
+  }, []);
+
+
+  return (
+    <div className="bg-gray-300">
+      <div className="bg-gray-600 mt-[92px] flex flex-row relative">
+
+        <div  ref={textRef}
+          className={`text-white flex flex-col absolute left-[530px] top-[220px] transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 "
+          }`}>
+          <h1 className="text-6xl font-bold mb-2">Zenith Tulips</h1>
+          <p className="text-xl">menghadirkan keindahan dalam setiap momen berharga di hidup anda</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Image
+          src={"/home/HeroSection.jpeg"}
+          alt="tulip's image"
+          width={700}
+          height={700}
+          className="w-[800px]"
+        />
+      </div>
+      <div className="bg-gray-600 mt-20 flex flex-row items-center">
+        <p className="text-white text-[17px] px-32">
+          Setiap susunan bunga adalah cerita yang disulam dengan penuh perhatian,
+          di mana warna dan wangi saling berpelukan, menciptakan harmoni yang
+          mampu menenangkan jiwa. Zenith tulips bukan sekadar bisnis,
+          ia adalah cerminan dari cinta kami terhadap keindahan yang disampaikan
+          oleh setiap helai bunga. Berdiri sejak tahun 2005, membawa keindahan di
+          setiap momen spesial dalam hidup Anda. Layaknya embun pagi yang
+          menyejukkan, bunga hadir untuk membawa ketenangan bagi siapa pun yang
+          memandang dan menyentuhnya. Setiap rangkaian merupakan sebentuk kisah
+          yang berbisik tentang ketulusan, keindahan, dan kedamaian yang
+          tersembunyi di setiap kelopaknya. Inilah perjalanan kami, bukan semata
+          demi keuntungan, Zenith Tulips adalah ungkapan hati, 
+          di mana setiap kuntum bunga adalah cerita yang penuh
+          arti, dan setiap rangkaiannya adalah karya seni untuk merangkul
+          ketenangan dalam hidup.
+        </p>
+        <Image
+          src={"/home/CompanyOverView.jpeg"}
+          alt={"Tulip's image"}
+          width={600}
+          height={600}
+          className="h-[600px]"
+        />
+      </div>
+      <div className="bg-gray-600 h-[1050px] rounded-t-xl">
+        <h1 className="text-white flex flex-row justify-center mt-20 font-bold text-5xl pt-5">Our Products</h1>
+      <div className="flex flex-row justify-between pl-[200px] pt-10">
+          <div className="bg-gray-600 flex flex-col items-center  rounded-t-full text-gray-300 w-[350px] rounded-b-md">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src={"/home/product2.jpeg"}
+            alt={"Fresh tulips"}
+            width={250}
+            height={200}
+            className="rounded-t-full mt-12"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <h2 className="mt-4 font-bold text-xl mb-2">Fresh Tulips</h2>
+          <p>Menghadirkan Tulip dengan kualitas terbaik</p>
+          <button className="bg-black w-28 rounded-lg mb-5 mt-5 h-9 hover:underline">
+          <Link href="/products">Shop Now</Link>
+          </button>
+        </div>
+        <div  className="mr-[200px] bg-gray-600 flex flex-col items-center  rounded-t-full text-gray-300 w-[350px] rounded-b-md">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src={"/home/product3.jpeg"}
+            alt={'tulips bouquet'}
+            width={250}
+            height={200}
+            className="rounded-t-full mt-12 h-[330px]"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <h3 className="mt-4 font-bold text-xl mb-2">Tulips Bouquet</h3>
+          <p>Pilihan Terbaik untuk Moment indahmu</p>
+          <button className="bg-black w-28 rounded-lg mb-5 mt-5 h-9 hover:underline">
+          <Link href="/products">Shop Now</Link>
+          </button>
+        </div>
+      </div>
+      <div className="mt-16">
+      <ReviewSection/>
+      </div>
+      </div>
     </div>
   );
 }
+
