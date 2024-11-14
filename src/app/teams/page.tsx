@@ -48,7 +48,7 @@ const TeamsPage = () => {
   return (
     <div className="p-5 bg-gray-600 mt-[92px]">
       <div className="flex flex-col justify-center items-center mb-16 px-4">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        <h1 className="text-white text-3xl md:text-4xl font-bold mb-8 text-center">
           Zenith Tulips Teams
         </h1>
         <Image
@@ -59,13 +59,13 @@ const TeamsPage = () => {
           className="rounded-xl shadow-md w-full max-w-4xl h-auto"
         />
       </div>
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+      <h2 className="text-white text-2xl md:text-3xl font-bold mb-8 text-center">
         Desainer Flowers
       </h2>
       <div className="px-4">
         <UsersGrid users={designers} />
       </div>
-      <h2 className="text-2xl md:text-3xl font-bold mt-16 mb-8 text-center">
+      <h2 className="text-white text-2xl md:text-3xl font-bold mt-16 mb-8 text-center">
         Staff
       </h2>
       <div className="px-4">

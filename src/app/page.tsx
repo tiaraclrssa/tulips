@@ -33,18 +33,18 @@ export default function Home() {
 
   return (
     <div className="bg-gray-300">
-      <div className="bg-gray-600 mt-[92px] flex flex-col md:flex-row relative">
+      <div className="bg-gray-600 mt-[92px] flex flex-col lg:flex-row relative">
         <div
           ref={textRef}
-          className={`text-white flex flex-col absolute md:static md:left-auto md:top-auto left-1/2 top-1/3 transform -translate-x-1/2 md:translate-x-0 md:pl-8 lg:pl-16 transition-all duration-1000 ${
+          className={`text-white flex flex-col absolute left-[10%] md:left-[30%] lg:left-[530px] top-[180px] md:top-[200px] lg:top-[220px] transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-2 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
             Zenith Tulips
           </h1>
-          <p className="text-lg md:text-xl text-center md:text-left">
-            Menghadirkan keindahan dalam setiap momen berharga di hidup Anda
+          <p className="text-md md:text-lg lg:text-xl">
+            menghadirkan keindahan dalam setiap momen berharga di hidup anda
           </p>
         </div>
         <Image
@@ -52,62 +52,78 @@ export default function Home() {
           alt="tulip's image"
           width={700}
           height={700}
-          className="w-full md:w-[50%] h-auto"
+          className="w-full lg:w-[800px]"
         />
       </div>
 
-      <div className="bg-gray-600 mt-20 flex flex-col md:flex-row items-center px-4 md:px-16">
-        <p className="text-white text-base md:text-lg mb-6 md:mb-0 md:pr-8">
-          Setiap susunan bunga adalah cerita yang disulam dengan penuh perhatian, di mana warna dan
-          wangi saling berpelukan, menciptakan harmoni yang mampu menenangkan jiwa. Zenith Tulips
-          bukan sekadar bisnis, ia adalah cerminan dari cinta kami terhadap keindahan yang
-          disampaikan oleh setiap helai bunga.
+      <div className="bg-gray-600 mt-20 flex flex-col lg:flex-row items-center">
+        <p className="text-white text-[15px] md:text-[17px] px-6 md:px-20 lg:px-32 mb-10 lg:mb-0">
+          Setiap susunan bunga adalah cerita yang disulam dengan penuh perhatian,
+          di mana warna dan wangi saling berpelukan, menciptakan harmoni yang
+          mampu menenangkan jiwa. Zenith tulips bukan sekadar bisnis,
+          ia adalah cerminan dari cinta kami terhadap keindahan yang disampaikan
+          oleh setiap helai bunga. Berdiri sejak tahun 2005, membawa keindahan di
+          setiap momen spesial dalam hidup Anda. Layaknya embun pagi yang
+          menyejukkan, bunga hadir untuk membawa ketenangan bagi siapa pun yang
+          memandang dan menyentuhnya. Setiap rangkaian merupakan sebentuk kisah
+          yang berbisik tentang ketulusan, keindahan, dan kedamaian yang
+          tersembunyi di setiap kelopaknya. Inilah perjalanan kami, bukan semata
+          demi keuntungan, Zenith Tulips adalah ungkapan hati,
+          di mana setiap kuntum bunga adalah cerita yang penuh
+          arti, dan setiap rangkaiannya adalah karya seni untuk merangkul
+          ketenangan dalam hidup.
         </p>
         <Image
           src={"/home/CompanyOverView.jpeg"}
           alt="Tulip's image"
           width={600}
           height={600}
-          className="w-full md:w-[50%] h-auto"
+          className="w-full lg:w-[600px] h-auto"
         />
       </div>
 
-      <div className="bg-gray-600 pt-10 pb-20 rounded-t-xl">
-        <h1 className="text-white text-center font-bold text-3xl md:text-5xl mb-10">Our Products</h1>
-        <div className="flex flex-col md:flex-row justify-center gap-10 px-4 md:px-16">
-          <div className="bg-gray-700 flex flex-col items-center rounded-t-full text-white w-full md:w-[350px] rounded-b-md p-4">
+      <div className="bg-gray-600 h-auto lg:h-[1050px] rounded-t-xl">
+        <h1 className="text-white flex justify-center mt-20 font-bold text-3xl md:text-4xl lg:text-5xl pt-5">
+          Our Products
+        </h1>
+        <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:pl-[200px] pt-10 gap-10 lg:gap-0">
+          <div className="bg-gray-600 flex flex-col items-center rounded-t-full text-white w-[250px] md:w-[300px] lg:w-[350px] rounded-b-md">
             <Image
               src={"/home/product2.jpeg"}
               alt="Fresh tulips"
               width={250}
               height={200}
-              className="rounded-t-full w-full h-auto"
+              className="rounded-t-full mt-12"
             />
-            <h2 className="mt-4 font-bold text-xl mb-2">Fresh Tulips</h2>
-            <p className="text-center">Menghadirkan Tulip dengan kualitas terbaik</p>
-            <button className="bg-black w-28 rounded-lg mb-5 mt-5 h-9 hover:underline">
+            <h2 className="mt-4 font-bold text-lg md:text-xl mb-2">
+              Fresh Tulips
+            </h2>
+            <p className="text-sm md:text-base">Menghadirkan Tulip dengan kualitas terbaik</p>
+            <button className="bg-black w-24 md:w-28 rounded-lg mb-5 mt-5 h-8 md:h-9 hover:underline">
               <Link href="/products">See more</Link>
             </button>
           </div>
-          <div className="bg-gray-700 flex flex-col items-center rounded-t-full text-white w-full md:w-[350px] rounded-b-md p-4">
+
+          <div className="bg-gray-600 flex flex-col items-center rounded-t-full text-white w-[250px] md:w-[300px] lg:w-[350px] rounded-b-md">
             <Image
               src={"/home/product3.jpeg"}
-              alt="Tulips Bouquet"
+              alt="tulips bouquet"
               width={250}
               height={200}
-              className="rounded-t-full w-full h-auto"
+              className="rounded-t-full mt-12 h-[230px] md:h-[280px] lg:h-[330px]"
             />
-            <h3 className="mt-4 font-bold text-xl mb-2">Tulips Bouquet</h3>
-            <p className="text-center">Pilihan Terbaik untuk Moment indahmu</p>
-            <button className="bg-black w-28 rounded-lg mb-5 mt-5 h-9 hover:underline">
+            <h3 className="mt-4 font-bold text-lg md:text-xl mb-2">
+              Tulips Bouquet
+            </h3>
+            <p className="text-sm md:text-base">Pilihan Terbaik untuk Moment indahmu</p>
+            <button className="bg-black w-24 md:w-28 rounded-lg mb-5 mt-5 h-8 md:h-9 hover:underline">
               <Link href="/products">See more</Link>
             </button>
           </div>
         </div>
-      </div>
-
-      <div className="mt-16">
-        <ReviewSection />
+        <div className="mt-16">
+          <ReviewSection />
+        </div>
       </div>
     </div>
   );

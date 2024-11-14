@@ -25,7 +25,7 @@ export default async function ProductPage() {
                 )}
                 <div className="flex flex-col md:flex-row justify-between mt-4">
                   <div>
-                    <h2 className="text-xl md:text-2xl text-gray-950 font-semibold">
+                    <h2 className="text-xl md:text-2xl text-white font-semibold">
                       {item.fields.productnName}
                     </h2>
                     <p className="text-white text-base md:text-lg">
