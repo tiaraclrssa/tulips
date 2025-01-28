@@ -16,8 +16,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Zenith Tulips Profile",
+  title: "Zenith Tulips",
   description: "hadir dlm setiap moment berharga di hidup anda",
+  icons: {
+    icon:"/LogoCom.png",
+  }
 };
 
 export default function RootLayout({
